@@ -1,5 +1,7 @@
 <x-app-layout>
+    
     <x-slot name=header>Home</x-slot>
+    
     <div class="tweet">
         <!-- 投稿データの表示 -->
         @foreach ($tweets as $tweet)
@@ -20,4 +22,5 @@
             </div>
         @endforeach
     </div>
+    
 </x-app-layout>
