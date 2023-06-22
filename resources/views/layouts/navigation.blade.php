@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('tweet.index')" :active="request()->routeIs('tweet.index')">
                         {{ __('一覧') }}
                     </x-nav-link>
+                    <!-- ログイン済なら投稿ボタンを表示 -->
+                    @auth
+                        <x-nav-link :href="route('tweet.create')" :active="request()->routeIs('tweet.create')">
+                            {{ __('投稿') }}
+                        </x-nav-link>
+                    @endauth
                 </div>
             </div>
             
@@ -83,6 +89,12 @@
             <x-responsive-nav-link :href="route('tweet.index')" :active="request()->routeIs('tweet.index')">
                 {{ __('一覧') }}
             </x-responsive-nav-link>
+            <!-- ログイン済なら投稿ボタンを表示 -->
+            @auth
+                <x-responsive-nav-link :href="route('tweet.create')" :active="request()->routeIs('tweet.create')">
+                    {{ __('投稿') }}
+                </x-responsive-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->
