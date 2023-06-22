@@ -19,13 +19,13 @@
                 <div class="tweet-content">{{ $tweet->content }}</div>
                 <!-- 画像があれば表示 -->
                 @if ($tweet->image)
-                    <img src="../../storage/{{ $tweet->image }}" alt="投稿画像" class="tweet-image">
+                    <img src="{{ asset('storage/' . $tweet->image) }}" alt="投稿画像" class="tweet-image">
                 @endif
                 <!-- 投稿日の表示 -->
                 <div class="tweet-date">{{ $tweet->created_at }}</div>
 
-                <x-primary-button>いいね</x-primary-button>
-                <x-primary-button>リツイート</x-primary-button>
+                <x-primary-button><img src="{{ asset('images/good_icon.png') }}" alt="いいね"></x-primary-button>
+                <x-primary-button><img src="{{ asset('images/share_icon.png') }}" alt="リツイート"></x-primary-button>
                 
                 <div class="tweet_menu">
                     <x-dropdown align="right" width="48">
