@@ -35,7 +35,7 @@
                             </button>
                         </x-slot>
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('tweet.show')">
+                            <x-dropdown-link :href="route('tweet.show', $tweet->id)">
                                 {{ __('詳細') }}
                             </x-dropdown-link>
                         </x-slot>
