@@ -50,13 +50,25 @@ class TweetController extends Controller
             
             session()->flash('message', '新しい投稿ができました。');
             return redirect()->route('tweet.index');
+            
         } catch (\Exception $e) {
             // 例外が発生した場合の処理
             // エラーログへの記録
             Log::error($e);
-            // ユーザーにエラーメッセージを表示
+
             session()->flash('error', '投稿の保存中にエラーが発生しました。');
             return back()->withInput();
         }
+    }
+    
+    /**
+     * 投稿詳細ページを表示
+     * @param int $id
+     * @return view
+     */
+    public function show(int $id)
+    {
+        $tweet = Tweet::find($id);
+        return view('tweets.show', ['tweet' => $tweet]);
     }
 }
