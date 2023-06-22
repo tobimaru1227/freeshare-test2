@@ -10,7 +10,7 @@
     @endif
     
     <div class="tweet">
-        <!-- 投稿データの表示 -->
+        <!-- 投稿データ一覧 -->
         @foreach ($tweets as $tweet)
             <div class="tweet-container">
                 <!-- 投稿者の表示 -->
@@ -26,6 +26,21 @@
 
                 <x-primary-button>いいね</x-primary-button>
                 <x-primary-button>リツイート</x-primary-button>
+                
+                <div class="tweet_menu">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button>
+                                <img src="{{ asset('images/3dot.png') }}" alt="3点リーダー">
+                            </button>
+                        </x-slot>
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('tweet.show')">
+                                {{ __('詳細') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
             </div>
         @endforeach
     </div>
