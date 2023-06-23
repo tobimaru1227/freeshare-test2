@@ -39,9 +39,11 @@
                         </button>
                     </x-slot>
                     <x-slot name="content">
-                        {{-- <x-dropdown-link :href="route('tweet.show', $tweet->id)">
-                            {{ __('詳細') }}
-                        </x-dropdown-link> --}}
+                        @if (Auth::id() === $tweet->user_id)
+                            <x-dropdown-link :href="route('tweet.edit', $tweet->id)">
+                                {{ __('編集') }}
+                            </x-dropdown-link>
+                        @endif
                     </x-slot>
                 </x-dropdown>
             </div>

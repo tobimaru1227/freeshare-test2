@@ -23,6 +23,8 @@ Route::get('/create', [TweetController::class, 'create'])->name('tweet.create');
 Route::post('/store', [TweetController::class, 'store'])->name('tweet.store');
 // 詳細画面の表示
 Route::get('/show/{id}', [TweetController::class, 'show'])->name('tweet.show');
+// 編集画面の表示
+Route::get('/edit/{id}', [TweetController::class, 'edit'])->name('tweet.edit');
 
 
 Route::middleware('auth')->group(function () {
